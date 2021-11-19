@@ -57,6 +57,7 @@ const SignDetection = () => {
           });
         });
 
+        canvasContext.clearRect(0, 0, videoWidth, videoHeight);
         tf.dispose(webCamImage);
         tf.dispose(resized);
         tf.dispose(casted);

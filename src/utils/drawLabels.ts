@@ -50,24 +50,28 @@ export const drawRect = ({
       const [y, x, height, width] = boxes[i] as number[];
       const text = classes[i] as keyof typeof labelMap;
 
-      canvasContext.strokeStyle = labelMap[text || 1].color;
-      canvasContext.lineWidth = 10;
-      canvasContext.fillStyle = 'white';
-      canvasContext.font = '30px Arial';
+      if (canvasContext) {
+        canvasContext.strokeStyle = labelMap[text].color;
+        canvasContext.lineWidth = 10;
+        canvasContext.fillStyle = 'white';
+        canvasContext.font = '30px Arial';
 
-      canvasContext.beginPath();
-      canvasContext.fillText(
-        `${labelMap[text].name} - ${Math.round((scores[i] || 1) * 100) / 100}`,
-        (x || 0) * imgWidth,
-        (y || 0) * imgHeight - 10
-      );
-      canvasContext.rect(
-        (x || 0) * imgWidth,
-        (y || 0) * imgHeight,
-        ((width || 0) * imgWidth) / 2,
-        ((height || 0) * imgHeight) / 1.5
-      );
-      canvasContext.stroke();
+        canvasContext.beginPath();
+        canvasContext.fillText(
+          `${labelMap[text].name} - ${
+            Math.round((scores[i] || 1) * 100) / 100
+          }`,
+          (x || 0) * imgWidth,
+          (y || 0) * imgHeight - 10
+        );
+        canvasContext.rect(
+          (x || 0) * imgWidth,
+          (y || 0) * imgHeight,
+          ((width || 0) * imgWidth) / 2,
+          ((height || 0) * imgHeight) / 1.5
+        );
+        canvasContext.stroke();
+      }
     }
   }
 };

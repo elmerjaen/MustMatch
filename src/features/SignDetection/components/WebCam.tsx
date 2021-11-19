@@ -23,25 +23,19 @@ const WebCam = ({
   };
 
   return (
-    <div>
+    <div className="relative">
       <Webcam
+        muted
         onLoadedData={onWebCamLoad}
-        audio={false}
-        id="img"
         ref={webCamRef}
-        screenshotQuality={1}
-        screenshotFormat="image/jpeg"
         videoConstraints={videoConstraints}
       />
-      <div style={{ position: 'absolute', top: '400px', zIndex: '9999' }}>
-        <canvas
-          ref={canvasRef}
-          id="myCanvas"
-          width={width}
-          height={height}
-          style={{ backgroundColor: 'transparent' }}
-        />
-      </div>
+      <canvas
+        style={{ position: 'absolute', top: '0' }}
+        ref={canvasRef}
+        width={width}
+        height={height}
+      />
     </div>
   );
 };

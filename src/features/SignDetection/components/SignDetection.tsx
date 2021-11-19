@@ -46,9 +46,9 @@ const SignDetection = () => {
 
         requestAnimationFrame(() => {
           drawRect({
-            boxes: (boxes as number[][]) || [[]],
-            classes: (classes as number[]) || [],
-            scores: (scores as number[]) || [],
+            boxes: (boxes as number[][][])[0] || [[0, 0, 0, 0]],
+            classes: (classes as number[][])[0] || [0],
+            scores: (scores as number[][])[0] || [0],
             threshold: 0.8,
             imgHeight: videoHeight,
             imgWidth: videoWidth,
@@ -69,20 +69,18 @@ const SignDetection = () => {
     }, 16.7);
 
     return () => clearInterval(predictionInterval);
-  }, []);
+  }, [webCamLoaded]);
 
   return (
-    <div>
-      <WebCam
-        onWebCamLoad={() => {
-          setWebCamLoaded(true);
-        }}
-        canvasRef={canvasRef}
-        webCamRef={webCamRef}
-        height={videoHeight}
-        width={videoWidth}
-      />
-    </div>
+    <WebCam
+      onWebCamLoad={() => {
+        setWebCamLoaded(true);
+      }}
+      canvasRef={canvasRef}
+      webCamRef={webCamRef}
+      height={videoHeight}
+      width={videoWidth}
+    />
   );
 };
 

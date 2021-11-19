@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Particles from 'react-tsparticles';
 
@@ -68,12 +69,14 @@ const LandingPage = () => (
         Primer traductor de señas panameño
       </p>
     </div>
-    <button
-      className="relative border-4 px-8 py-3 text-white transition-colors hover:bg-white hover:text-black hover:border-black uppercase block mx-auto mt-10"
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      className="relative border-4 border-white px-8 py-3 text-white transition-colors hover:bg-white hover:text-black uppercase block mx-auto mt-10"
       type="button"
     >
       <Link to="/sign-detection">Empezar</Link>
-    </button>
+    </motion.button>
   </main>
 );
 

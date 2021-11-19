@@ -1,4 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import drawRect from '../../../utils/drawLabels';
@@ -72,15 +73,22 @@ const SignDetection = () => {
   }, [webCamLoaded]);
 
   return (
-    <WebCam
-      onWebCamLoad={() => {
-        setWebCamLoaded(true);
-      }}
-      canvasRef={canvasRef}
-      webCamRef={webCamRef}
-      height={videoHeight}
-      width={videoWidth}
-    />
+    <motion.div
+      className="h-full"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <WebCam
+        onWebCamLoad={() => {
+          setWebCamLoaded(true);
+        }}
+        canvasRef={canvasRef}
+        webCamRef={webCamRef}
+        height={videoHeight}
+        width={videoWidth}
+      />
+    </motion.div>
   );
 };
 

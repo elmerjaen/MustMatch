@@ -66,7 +66,7 @@ const LandingPage = () => (
     <div className="relative text-center text-white">
       <h1 className="pt-56 text-9xl font-medium tracking-widest">SIGNSPA</h1>
       <p className="text-2xl tracking-normal">
-        Primer traductor de señas panameño
+        Primer Traductor de Señas Panameño.
       </p>
     </div>
     <motion.button

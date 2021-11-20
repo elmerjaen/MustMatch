@@ -18,9 +18,6 @@ const Header = () => {
         <span className="font-medium text-3xl">UTP</span>
       </div>
       <div className="relative flex items-center gap-10">
-        <button type="button" className="text-xl">
-          Inicio
-        </button>
         <button
           type="button"
           onClick={() => {
@@ -28,7 +25,7 @@ const Header = () => {
           }}
           className="border-2 p-3 inline-block transition-colors hover:bg-white hover:text-black hover:border-black"
         >
-          Más información
+          Nuestra Misión
         </button>
         <motion.p
           initial={{ opacity: 0 }}
@@ -38,7 +35,7 @@ const Header = () => {
         >
           El equipo Must Match tiene la misión de promover la enseñanza del
           lenguaje de señas en nuestro territorio panameño y fomentar la
-          inclusión social de aquellas personas con necesidades especiales
+          inclusión social de aquellas personas con necesidades especiales.
         </motion.p>
       </div>
     </header>
